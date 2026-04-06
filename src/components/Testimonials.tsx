@@ -4,6 +4,11 @@ import { motion } from "framer-motion";
 import { TiltCard } from "./TiltCard";
 import { useEffect, useState } from "react";
 import { Loader2, Send, CheckCircle2 } from "lucide-react";
+import { createClient } from "@supabase/supabase-js";
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "";
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 type Testimonial = {
   id?: string;
@@ -20,6 +25,7 @@ export default function Testimonials() {
   const [formData, setFormData] = useState({ author: "", role: "", quote: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitState, setSubmitState] = useState<"idle" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     fetch("/api/testimonials")
@@ -37,17 +43,33 @@ export default function Testimonials() {
 
     setIsSubmitting(true);
     setSubmitState("idle");
+    setErrorMessage("");
 
     try {
-      const res = await fetch("/api/testimonials", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+      const { data, error } = await supabase
+        .from("feedbacks")
+        .insert([
+          {
+            name: formData.author,
+            role: formData.role,
+            feedback: formData.quote,
+            created_at: new Date().toISOString(),
+          },
+        ])
+        .select();
 
-      if (!res.ok) throw new Error("Failed to submit");
+      if (error) {
+        throw error;
+      }
       
-      const newTestimonial = await res.json();
+      const newTestimonialData = data?.[0];
+      
+      const newTestimonial: Testimonial = {
+        id: newTestimonialData?.id?.toString() || Date.now().toString(),
+        author: newTestimonialData?.name || formData.author,
+        role: newTestimonialData?.role || formData.role,
+        quote: newTestimonialData?.feedback || formData.quote,
+      };
       
       // Optimistically inject the new testimonial at the front
       setTestimonials((prev) => [newTestimonial, ...prev]);
@@ -58,8 +80,10 @@ export default function Testimonials() {
       
       // Reset success state after a few seconds
       setTimeout(() => setSubmitState("idle"), 4000);
-    } catch (err) {
-      console.error(err);
+    } catch (err: any) {
+      console.error("Supabase insert error:", err);
+      // Show exact error in console and set it to state
+      setErrorMessage(err?.message || "An unknown error occurred while submitting.");
       setSubmitState("error");
     } finally {
       setIsSubmitting(false);
@@ -186,7 +210,7 @@ export default function Testimonials() {
                   )}
                   {submitState === "error" && (
                     <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} className="text-red-400">
-                      Failed to submit. Try again.
+                      {errorMessage || "Failed to submit. Try again."}
                     </motion.div>
                   )}
                 </div>
