@@ -28,13 +28,31 @@ export default function Testimonials() {
   const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
-    fetch("/api/testimonials")
-      .then((res) => res.json())
-      .then((data) => {
-        if (Array.isArray(data)) setTestimonials(data);
-      })
-      .catch((err) => console.error("Failed to load testimonials:", err))
-      .finally(() => setIsLoading(false));
+    async function loadTestimonials() {
+      try {
+        const { data, error } = await supabase
+          .from("feedbacks")
+          .select("*")
+          .order("created_at", { ascending: false });
+
+        if (error) throw error;
+
+        if (data) {
+          const mappedData: Testimonial[] = data.map((t) => ({
+            id: t.id?.toString(),
+            author: t.name,
+            role: t.role,
+            quote: t.feedback,
+          }));
+          setTestimonials(mappedData);
+        }
+      } catch (err) {
+        console.error("Failed to load testimonials:", err);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    loadTestimonials();
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -111,6 +129,10 @@ export default function Testimonials() {
           {isLoading ? (
             <div className="col-span-full py-12 flex justify-center text-zinc-500">
                <Loader2 className="w-8 h-8 animate-spin" />
+            </div>
+          ) : testimonials.length === 0 ? (
+            <div className="col-span-full py-12 flex justify-center text-zinc-500">
+              No testimonials yet.
             </div>
           ) : (
             testimonials.map((t, i) => (
