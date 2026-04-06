@@ -95,7 +95,7 @@ function ProjectCard({ project, idx }: { project: any; idx: number }) {
           transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg) scale(${isHovered ? 1.04 : 1})`,
           transformStyle: "preserve-3d",
         }}
-        className={`relative z-10 overflow-hidden rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl transition-all duration-300 ease-out aspect-[4/3] flex flex-col justify-end w-full h-full transform-gpu
+        className={`relative z-10 overflow-hidden rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl transition-all duration-300 ease-out aspect-[4/5] md:aspect-[4/3] flex flex-col justify-end w-full h-full transform-gpu
         ${isHovered
             ? "border-blue-500/30 shadow-[0_0_60px_rgba(59,130,246,0.25)]"
             : "shadow-[inset_0_0_40px_rgba(168,85,247,0.2)]"
@@ -137,21 +137,21 @@ function ProjectCard({ project, idx }: { project: any; idx: number }) {
         />
 
         {/* Content Typography */}
-        <div className="absolute inset-0 p-8 flex flex-col justify-end z-10 pointer-events-none">
+        <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end z-10 pointer-events-none">
           <div className="flex items-end justify-between">
             <div
               style={{
-                transform: `translateZ(${isHovered ? "40px" : "0px"})`,
+                transform: `translateZ(${isHovered && !isMobile ? "40px" : "0px"})`,
                 transition: "transform 0.3s ease-out",
               }}
             >
-              <span className="text-xs text-zinc-400 font-mono tracking-widest uppercase mb-3 block">
+              <span className="text-[10px] md:text-xs text-zinc-400 font-mono tracking-widest uppercase mb-2 md:mb-3 block">
                 {project.category}
               </span>
-              <h3 className="text-3xl font-semibold tracking-tight text-white mb-2">
+              <h3 className="text-2xl md:text-3xl font-semibold tracking-tight text-white mb-2">
                 {project.title}
               </h3>
-              <p className="text-zinc-400 text-sm max-w-sm">
+              <p className="text-zinc-400 text-xs md:text-sm max-w-[200px] sm:max-w-xs md:max-w-sm">
                 {project.description}
               </p>
             </div>
@@ -182,7 +182,7 @@ function ProjectCard({ project, idx }: { project: any; idx: number }) {
 
 export default function Projects() {
   return (
-    <section className="relative z-20 bg-transparent min-h-screen text-white pt-16 lg:pt-24 pb-24 lg:pb-48 font-sans border-t border-zinc-800">
+    <section className="relative z-20 bg-transparent min-h-screen text-white pt-12 lg:pt-24 pb-16 lg:pb-48 font-sans border-t border-zinc-800 overflow-hidden md:overflow-visible">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
         {/* Section Header */}
         <motion.div
@@ -201,7 +201,7 @@ export default function Projects() {
         </motion.div>
 
         {/* Clean Static Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 relative z-10 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 relative z-10 w-full">
           {PROJECTS.filter((p) => p.isMain).map((project, idx) => (
             <ProjectCard key={project.title} project={project} idx={idx} />
           ))}

@@ -13,7 +13,7 @@ const SERVICES = [
 
 export default function Services() {
   return (
-    <section className="relative w-full py-16 md:py-32 px-6 lg:px-24 bg-transparent">
+    <section className="relative w-full py-12 md:py-32 px-6 lg:px-24 bg-transparent overflow-hidden md:overflow-visible">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -22,7 +22,7 @@ export default function Services() {
           className="mb-16"
         >
           <span className="text-blue-400 font-mono tracking-widest text-sm uppercase mb-4 block">Expertise</span>
-          <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white tracking-tight">Services</h2>
+          <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white tracking-tight break-words">Services</h2>
         </motion.div>
 
         <div className="flex flex-col border-t border-white/5">
@@ -38,14 +38,14 @@ export default function Services() {
                 {/* Blue tracking line on hover */}
                 <div className="absolute left-0 bottom-[-1px] h-[2px] w-0 bg-gradient-to-r from-blue-500 to-cyan-400 group-hover:w-full transition-all duration-700 ease-out" />
 
-                <div className="flex items-center gap-8 md:gap-16 transform group-hover:translate-x-6 transition-transform duration-500 ease-out">
-                  <span className="text-zinc-600 font-mono text-xl">{srv.num}</span>
-                  <h3 className="text-3xl md:text-5xl font-semibold text-zinc-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-cyan-400 transition-colors duration-500">
+                <div className="flex items-center gap-6 md:gap-16 transform group-hover:translate-x-6 transition-transform duration-500 ease-out">
+                  <span className="text-zinc-600 font-mono text-lg md:text-xl">{srv.num}</span>
+                  <h3 className="text-2xl md:text-5xl font-semibold text-zinc-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-cyan-400 transition-colors duration-500 max-w-[80vw] break-words">
                     {srv.title}
                   </h3>
                 </div>
 
-                <div className="flex items-center gap-8 mt-6 md:mt-0 transform group-hover:-translate-x-6 transition-transform duration-500 ease-out">
+                <div className="flex items-center gap-6 md:gap-8 mt-4 md:mt-0 transform group-hover:-translate-x-6 transition-transform duration-500 ease-out">
                   <p className="text-zinc-500 max-w-sm hidden md:block group-hover:text-zinc-300 transition-colors duration-500">{srv.desc}</p>
                 </div>
               </motion.div>

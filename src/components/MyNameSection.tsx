@@ -45,16 +45,16 @@ export default function MyNameSection() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex flex-col items-center md:items-start text-center md:text-left"
+          className="flex flex-col items-center md:items-start text-center md:text-left w-full"
         >
           <span className="text-blue-400 font-mono tracking-widest text-xs md:text-sm uppercase mb-4 md:mb-6 block drop-shadow-[0_0_10px_rgba(96,165,250,0.5)]">
             Hi there, I'm Aadil
           </span>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 md:mb-8 leading-[1.1]">
+          <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 md:mb-8 leading-[1.2] md:leading-[1.1] max-w-full break-words">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 drop-shadow-sm">Digital Marketer</span> <br />
             a Growth Strategist & UI/UX Designer
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-zinc-400 leading-relaxed font-light mb-8 md:mb-10 max-w-lg">
+          <p className="text-sm sm:text-lg md:text-xl text-zinc-400 leading-relaxed font-light mb-8 md:mb-10 max-w-sm md:max-w-lg">
             I help brands scale using performance marketing, SEO, and high-converting digital strategies &  also design UI/UX
           </p>
           <a
@@ -72,7 +72,7 @@ export default function MyNameSection() {
           whileInView={{ opacity: 1, x: 0, rotate: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-          className="relative w-[320px] h-[420px] mx-auto md:ml-auto perspective-[1000px] z-20"
+          className="relative w-[280px] h-[360px] sm:w-[320px] sm:h-[420px] md:w-[320px] md:h-[420px] mx-auto md:ml-auto perspective-[1000px] z-20 mt-8 md:mt-0"
         >
           {/* Native Background Glow (Premium Effect) */}
           <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-purple-500/10 to-pink-500/20 blur-2xl opacity-70 pointer-events-none" />
@@ -99,7 +99,7 @@ export default function MyNameSection() {
               <img
                 src="/my-image.jpg"
                 alt="Aadil Tamboli"
-                className="w-full h-full object-cover relative"
+                className="w-full h-full object-cover object-top md:object-center relative"
               />
             </div>
 
