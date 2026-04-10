@@ -34,11 +34,11 @@ export default function MyNameSection() {
     setRotation({ x: 0, y: 0 });
   };
   return (
-    <section className="relative w-full py-16 md:py-32 lg:py-48 px-6 md:px-12 lg:px-24 mx-auto flex items-center bg-transparent overflow-hidden">
+    <section className="relative w-full py-16 md:py-32 lg:py-48 mx-auto flex items-center bg-transparent overflow-hidden">
       {/* Background glow blob */}
       <div className="absolute top-0 right-0 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-blue-600/10 rounded-full blur-[80px] md:blur-[120px] pointer-events-none" />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center w-full max-w-7xl mx-auto z-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center container-normal z-10">
         {/* Left: Text */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}

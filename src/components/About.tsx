@@ -19,7 +19,7 @@ export default function About() {
   return (
     <section 
       ref={containerRef} 
-      className="relative w-full py-32 md:py-48 flex items-center justify-center overflow-hidden bg-transparent"
+      className="relative w-full py-12 md:py-20 lg:py-28 mb-[60px] lg:mb-[80px] flex items-center justify-center overflow-hidden bg-transparent"
     >
       {/* Animated Gradient Background */}
       <motion.div 
@@ -30,9 +30,9 @@ export default function About() {
       </motion.div>
 
       {/* Glassmorphism Card */}
-      <div className="relative z-10 w-full max-w-4xl mx-auto px-6">
-        <TiltCard className="bg-white/5 backdrop-blur-3xl border border-white/10 rounded-3xl p-10 md:p-16 text-center shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight drop-shadow-sm">
+      <div className="relative z-10 container-wide">
+        <TiltCard className="bg-white/5 backdrop-blur-3xl border border-white/10 rounded-3xl p-6 md:p-8 text-center shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-5 tracking-tight drop-shadow-sm">
             About Me
           </h2>
           <p className="text-lg md:text-xl text-white/80 leading-relaxed font-light max-w-2xl mx-auto">

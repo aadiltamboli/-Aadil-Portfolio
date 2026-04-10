@@ -3,7 +3,7 @@ import Overlay from "@/components/Overlay";
 import Projects from "@/components/Projects";
 import MyNameSection from "@/components/MyNameSection";
 import Stats from "@/components/Stats";
-import Services from "@/components/Services";
+import Resume from "@/components/Resume";
 import Skills from "@/components/Skills";
 import Testimonials from "@/components/Testimonials";
 import CTASection from "@/components/sections/CTASection";
@@ -16,7 +16,7 @@ export default function Home() {
       </ScrollyCanvas>
       <MyNameSection />
       <Stats />
-      <Services />
+      <Resume />
       <Skills />
       <Projects />
       <Testimonials />

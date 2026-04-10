@@ -182,15 +182,15 @@ function ProjectCard({ project, idx }: { project: any; idx: number }) {
 
 export default function Projects() {
   return (
-    <section className="relative z-20 bg-transparent min-h-screen text-white pt-12 lg:pt-24 pb-16 lg:pb-48 font-sans border-t border-zinc-800 overflow-hidden md:overflow-visible">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
+    <section className="relative z-20 bg-transparent text-white py-12 md:py-20 lg:py-28 mb-[60px] lg:mb-[80px] font-sans border-t border-zinc-800 overflow-hidden md:overflow-visible">
+      <div className="container-wide">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mb-12 md:mb-20"
+          className="mb-10"
         >
           <span className="text-zinc-500 uppercase tracking-[0.3em] text-sm">
             Selected Work
@@ -201,7 +201,7 @@ export default function Projects() {
         </motion.div>
 
         {/* Clean Static Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 relative z-10 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 relative z-10 w-full max-w-[900px] 2xl:max-w-[1000px] mx-auto">
           {PROJECTS.filter((p) => p.isMain).map((project, idx) => (
             <ProjectCard key={project.title} project={project} idx={idx} />
           ))}

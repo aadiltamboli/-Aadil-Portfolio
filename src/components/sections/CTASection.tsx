@@ -126,19 +126,19 @@ export default function CTASection() {
 
   return (
     <>
-      <section className="py-16 md:py-24 px-6 md:px-12 lg:px-24 w-full mb-16">
+      <section className="py-12 md:py-20 lg:py-28 w-full mb-[60px] lg:mb-[80px]">
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="max-w-4xl mx-auto rounded-3xl bg-gradient-to-br from-white/10 via-white/5 to-transparent border border-white/10 p-8 md:p-16 text-center relative overflow-hidden backdrop-blur-sm"
+           initial={{ opacity: 0, scale: 0.95 }}
+           whileInView={{ opacity: 1, scale: 1 }}
+           viewport={{ once: true }}
+           transition={{ duration: 0.6 }}
+           className="w-full max-w-[700px] mx-auto rounded-3xl bg-gradient-to-br from-white/10 via-white/5 to-transparent border border-white/10 p-6 text-center relative overflow-hidden backdrop-blur-sm"
         >
           <div className="relative z-10 w-full min-h-[350px] flex flex-col items-center justify-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-5">
               Want to hire me?
             </h2>
-            <p className="text-xl text-zinc-400 font-light max-w-xl mx-auto mb-12">
+            <p className="text-xl text-zinc-400 font-light max-w-xl mx-auto mb-8">
               Make a decision 😉
             </p>
 
