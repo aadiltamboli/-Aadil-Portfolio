@@ -6,9 +6,11 @@ import { motion, useMotionTemplate, useMotionValue, useSpring, useTransform } fr
 export const TiltCard = ({
   children,
   className = "",
+  style,
 }: {
   children: React.ReactNode;
   className?: string;
+  style?: React.CSSProperties;
 }) => {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -65,6 +67,7 @@ export const TiltCard = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       style={{
+        ...style,
         scale,
         rotateX,
         rotateY,
