@@ -34,7 +34,7 @@ export default function MyNameSection() {
     setRotation({ x: 0, y: 0 });
   };
   return (
-    <section className="relative w-full py-16 md:py-32 lg:py-48 mx-auto flex items-center bg-transparent overflow-hidden">
+    <section id="about" className="relative w-full py-16 md:py-32 lg:py-48 mx-auto flex items-center bg-transparent overflow-hidden">
       {/* Background glow blob */}
       <div className="absolute top-0 right-0 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-blue-600/10 rounded-full blur-[80px] md:blur-[120px] pointer-events-none" />
 
@@ -96,10 +96,12 @@ export default function MyNameSection() {
               }}
               className="absolute inset-0 transition-transform duration-[400ms] ease-out w-full h-full"
             >
-              <img
+              <Image
                 src="/my-image.jpg"
                 alt="Aadil Tamboli"
-                className="w-full h-full object-cover object-top md:object-center relative"
+                fill
+                loading="lazy"
+                className="object-cover object-top md:object-center relative"
               />
             </div>
 

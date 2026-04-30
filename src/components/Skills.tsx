@@ -8,11 +8,11 @@ import { TbTrendingUp } from "react-icons/tb";
 import { FaClipboardList } from "react-icons/fa";
 
 const SKILLS = [
-  { name: "SEO", Icon: TbTrendingUp },
-  { name: "Google Ads", Icon: SiGoogleads },
-  { name: "Meta Ads", Icon: SiMeta },
-  { name: "Content Strategy", Icon: FaClipboardList },
-  { name: "UI/UX", Icon: MdOutlineDesignServices },
+  { name: "SEO", Icon: TbTrendingUp, glow: "rgba(6,182,212,0.15)", border: "rgba(6,182,212,0.3)" }, // blue/cyan
+  { name: "Google Ads", Icon: SiGoogleads, glow: "rgba(59,130,246,0.15)", border: "rgba(59,130,246,0.3)" }, // light blue
+  { name: "Meta Ads", Icon: SiMeta, glow: "rgba(168,85,247,0.15)", border: "rgba(168,85,247,0.3)" }, // purple
+  { name: "Content Strategy", Icon: FaClipboardList, glow: "rgba(234,179,8,0.15)", border: "rgba(234,179,8,0.3)" }, // yellow
+  { name: "UI/UX", Icon: MdOutlineDesignServices, glow: "rgba(236,72,153,0.15)", border: "rgba(236,72,153,0.3)" }, // pink
 ];
 
 export default function Skills() {
@@ -41,7 +41,13 @@ export default function Skills() {
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               className="w-[260px] h-[180px] grow-0 shrink-0 snap-center"
             >
-              <TiltCard className="relative bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl hover:border-blue-500/30 hover:shadow-[0_0_40px_rgba(59,130,246,0.15)] transition-all duration-300 group w-full h-full p-4">
+              <TiltCard 
+                className="relative bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl transition-all duration-300 group w-full h-full p-4 hover:border-[var(--hover-border)] hover:shadow-[0_0_40px_var(--hover-glow)]"
+                style={{
+                  '--hover-glow': skill.glow,
+                  '--hover-border': skill.border
+                } as React.CSSProperties}
+              >
                 
                 <div className="flex flex-col items-center justify-center h-full w-full gap-[12px] m-0 p-0">
                   <Icon className="text-5xl md:text-6xl text-white/50 opacity-80 drop-shadow-[0_0_4px_rgba(255,204,0,0.3)] transition-all duration-500 group-hover:scale-105 group-hover:opacity-100 group-hover:text-[#ffcc00] group-hover:drop-shadow-[0_0_8px_rgba(255,204,0,0.6)] m-0 p-0 border-0 flex-shrink-0" />

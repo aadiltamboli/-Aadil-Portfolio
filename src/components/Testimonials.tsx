@@ -105,7 +105,7 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="relative w-full py-12 md:py-20 lg:py-28 mb-[60px] lg:mb-[80px] bg-transparent overflow-hidden">
+    <section id="contact" className="relative w-full py-12 md:py-20 lg:py-28 mb-[60px] lg:mb-[80px] bg-transparent overflow-hidden">
       {/* Background glow blobs */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
 

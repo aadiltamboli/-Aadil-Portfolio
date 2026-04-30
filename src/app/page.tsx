@@ -1,12 +1,10 @@
 import ScrollyCanvas from "@/components/ScrollyCanvas";
 import Overlay from "@/components/Overlay";
-import Projects from "@/components/Projects";
 import MyNameSection from "@/components/MyNameSection";
 import Stats from "@/components/Stats";
 import Resume from "@/components/Resume";
-import Skills from "@/components/Skills";
-import Testimonials from "@/components/Testimonials";
-import CTASection from "@/components/sections/CTASection";
+import DynamicSections from "@/components/DynamicSections";
+import AmbientGlows from "@/components/AmbientGlows";
 
 export default function Home() {
   return (
@@ -14,13 +12,15 @@ export default function Home() {
       <ScrollyCanvas>
         <Overlay />
       </ScrollyCanvas>
-      <MyNameSection />
-      <Stats />
-      <Resume />
-      <Skills />
-      <Projects />
-      <Testimonials />
-      <CTASection />
+      
+      {/* Sections Below Hero */}
+      <div className="relative w-full">
+        <AmbientGlows />
+        <MyNameSection />
+        <Stats />
+        <Resume />
+        <DynamicSections />
+      </div>
     </main>
   );
 }
