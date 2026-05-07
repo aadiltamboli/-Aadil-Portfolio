@@ -23,7 +23,7 @@ export default function WhyWorkWithMe() {
   ];
 
   return (
-    <section className="py-16 md:py-24 px-6 md:px-12 lg:px-24 w-full bg-white/[0.02] border-y border-white/5 relative overflow-hidden mt-8 md:mt-16">
+    <section className="py-16 md:py-24 px-6 md:px-12 lg:px-24 w-full bg-white/[0.02] relative overflow-hidden mt-8 md:mt-16">
       <div className="max-w-5xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

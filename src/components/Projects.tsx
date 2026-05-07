@@ -182,7 +182,7 @@ function ProjectCard({ project, idx }: { project: any; idx: number }) {
 
 export default function Projects() {
   return (
-    <section id="work" className="relative z-20 bg-transparent text-white py-12 md:py-20 lg:py-28 mb-[60px] lg:mb-[80px] font-sans border-t border-zinc-800 overflow-hidden md:overflow-visible">
+    <section id="work" className="relative z-20 bg-transparent text-white py-12 md:py-20 lg:py-28 mb-[60px] lg:mb-[80px] font-sans overflow-hidden md:overflow-visible">
       <div className="container-wide">
         {/* Section Header */}
         <motion.div
